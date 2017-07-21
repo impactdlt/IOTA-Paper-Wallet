@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     ctx.font = "bold 32px Roboto";
     ctx.textAlign = "center";
-    ctx.fillText("ENTER A SEED AND PRESS GENERATE", 800, 300);
+    ctx.fillText("ENTER A SEED AND PRESS GENERATE:", 800, 300);
+    ctx.fillText("81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9", 750, 400);
 
     function GenerateQR() {
         seed = document.getElementById('seed').value;
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var val = true;
 
         if (seed == "" || seed.length > 81 || !seed.match(/^[A-Z9]*$/)) {
-            msg = "THIS IS NOT A VALID SEED!";
+            msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9";
             document.getElementById('validMessage').innerHTML = msg;
 
             val = false;
