@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     ctx.font = "bold 32px Roboto";
     ctx.textAlign = "center";
-    ctx.fillText("ENTER A SEED AND PRESS GENERATE:", 800, 300);
-    ctx.fillText("81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9", 750, 400);
+    ctx.fillText("ENTER A SEED AND PRESS GENERATE:", 800, 250);
+    ctx.fillText("81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9", 800, 350);
 
     function GenerateQR() {
         seed = document.getElementById('seed').value;
@@ -46,9 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 
-
     function GeneratePaper() {
-
 
         if (validAdd) {
 
@@ -93,17 +91,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 ctx.font = "bold 24.6px Roboto";
                 ctx.fillText(address, 1580, 520);
 
-
-                ctx.textAlign = "left";
-                ctx.save();
-                ctx.translate(1560, 320);
-                ctx.rotate(3 * Math.PI / 2);
-                ctx.font = "bold 30.3px Roboto";
-                ctx.fillStyle = "#000000";
-                ctx.textAlign = "left";
-                //ctx.fillText("IOTA IOTA IOTA IOTA IOTA IOTA", 0, 0);
-                ctx.restore();
-
                 var img = new Image;
                 img.onload = function() {
                     ctx.drawImage(img, 400, 114, 800, 300);
@@ -134,17 +121,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function PrintWallet() {
         window.print();
     }
-    
+
     document.getElementById("generate").addEventListener("click", GenerateQR);
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
-function expand(b)
-{
-   var style ="hidden";
-   if(b)
-      style = "visible";
-        
-  document.getElementById("tooltiptext").style.visibility = style;
+function expand(b) {
+    var style = "hidden";
+    if (b)
+        style = "visible";
 
+    document.getElementById("tooltiptext").style.visibility = style;
 }
