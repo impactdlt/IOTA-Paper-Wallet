@@ -24,6 +24,6 @@ v1.2 Added build support and a precompiled archive + graphics fixes<br>
 v1.2.1 Minor Graphical Fixes<br>
 <br>
 
-Current SHA256 checksum for offline build: ca869eaf320328b840be88b9407e9f48c459e723019de2e55acc1af3188acb20
+Current SHA256 checksum for offline build: c4f3963461c8d1bf50dc9492d162e8eaa879f677807697d4c551d0610d0ab9e7
 
 Find me on IOTA slack @arancauchi or on reddit /u/mothermole1

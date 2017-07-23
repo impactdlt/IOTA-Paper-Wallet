@@ -99,6 +99,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             };
             bg.src = "img/bg.png";
         }
+
+        document.getElementById("copy").style.visibility = "visible";
+        document.getElementById("copy").innerHTML = "Generated Address: " + address;
+
     }
 
     function DisplayValid(seed) {

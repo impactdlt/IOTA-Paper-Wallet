@@ -110,6 +110,14 @@
         height: 32px;
     }
     
+    #copy {
+        color: #FFF;
+        text-align: right;
+        float: right;
+        visibility: hidden;
+        font-size: 10px;
+    }
+    
     @media print {
         input {
             display: none!important;
