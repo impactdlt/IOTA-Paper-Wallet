@@ -97,7 +97,7 @@
         border: 1px solid #FFF;
         margin-top: 5px;
         color: #FFF;
-        width:800px;
+        width: 800px;
     }
     
     a {
@@ -140,8 +140,6 @@
     .tooltip .tooltiptext {
         visibility: hidden;
         width: 100%;
-        bottom: 100%;
-        left: 80px;
         margin-left: -60px;
         /* Use half of the width (120/2 = 60), to center the tooltip */
         color: #fff;
@@ -149,13 +147,11 @@
         border-radius: 6px;
         /* Position the tooltip text - see examples below! */
         position: absolute;
+        bottom: 50px;
+        left: 75px;
         z-index: 1;
         line-height: 18px;
         font-size: 12px;
-    }
-    
-    .infoTip:hover .tooltiptext {
-        visibility: visible;
     }
     
     ul {
@@ -195,9 +191,22 @@
         color: white;
     }
     
-    #download
-    {
+    #download {
         position: absolute;
         margin: auto;
         width: 100%;
+    }
+    
+    #attr,
+    #ver {
+        position: absolute;
+        text-align: right;
+        right: 10px;
+        bottom: 10px;
+        color: #FFF;
+        font-size: 12px;
+    }
+    
+    #attr {
+        bottom: 32px;
     }

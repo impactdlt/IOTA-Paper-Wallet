@@ -1,4 +1,4 @@
-var visible = false;
+var infoVisible = false;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var iota = new IOTA({
@@ -126,10 +126,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
-function expand(b) {
+function expand() {
     var style = "hidden";
-    if (b)
+    if (!infoVisible) {
         style = "visible";
+    }
+    infoVisible = !infoVisible;
+
 
     document.getElementById("tooltiptext").style.visibility = style;
 }

@@ -21,6 +21,9 @@ Unzip this file and run the resulting HTML file in your browser.
 
 v1.1 Added landscape support and updated validation rules<br>
 v1.2 Added build support and a precompiled archive + graphics fixes<br>
+v1.2.1 Minor Graphical Fixes<br>
 <br>
+
+Current SHA256 checksum for offline build: ca869eaf320328b840be88b9407e9f48c459e723019de2e55acc1af3188acb20
 
 Find me on IOTA slack @arancauchi or on reddit /u/mothermole1
