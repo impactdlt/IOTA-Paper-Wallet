@@ -1,8 +1,11 @@
 var infoVisible = false;
+var mode = "default";
+var btnDefault = document.getElementById("default");
+var btnNoQR = document.getElementById("no-qr");
+var btnNoSeed = document.getElementById("no-seed");
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var iota = new IOTA({
-        // Host and provider are only needed if the user intends to generate the address deterministically
         'host': 'http://localhost',
         'port': 14265
     })
@@ -72,16 +75,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 ctx.globalAlpha = 0.8;
                 ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
                 ctx.restore();
-                ctx.drawImage(seedCanvas, 20, 60);
+                if (mode != "no-qr")
+                    ctx.drawImage(seedCanvas, 20, 60);
                 ctx.drawImage(addressCanvas, 1280, 180);
 
-                ctx.font = "bold 28px Roboto";
-                ctx.textAlign = "center";
-                ctx.fillText("PRIVATE SEED", 170, 400);
-
-                ctx.font = "bold 24.6px Roboto";
-                ctx.textAlign = "left";
-                ctx.fillText(seed, 20, 40);
+                if (mode == "default") {
+                    ctx.font = "bold 28px Roboto";
+                    ctx.textAlign = "center";
+                    ctx.fillText("PRIVATE SEED", 170, 400);
+                    ctx.font = "bold 24.6px Roboto";
+                    ctx.textAlign = "left";
+                    ctx.fillText(seed, 20, 40);
+                }
 
                 ctx.textAlign = "center";
                 ctx.font = "bold 28px Roboto";
@@ -130,13 +135,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
-function expand() {
+function Expand() {
     var style = "hidden";
     if (!infoVisible) {
         style = "visible";
     }
     infoVisible = !infoVisible;
 
-
     document.getElementById("tooltiptext").style.visibility = style;
+}
+
+function SetMode(m) {
+    mode = m;
+    document.getElementById("default").classList.remove("button-active");
+    document.getElementById("no-qr").classList.remove("button-active");
+    document.getElementById("no-seed").classList.remove("button-active");
+    if (m == "default")
+        document.getElementById("default").classList.add("button-active");
+    else if (m == "no-qr")
+        document.getElementById("no-qr").classList.add("button-active");
+    else
+        document.getElementById("no-seed").classList.add("button-active");
 }

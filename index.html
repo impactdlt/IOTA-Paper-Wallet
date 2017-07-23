@@ -34,10 +34,12 @@
 
     <div id="infoContainer">
         <br>
-        <div class="tooltip"><span onclick="expand()" id="infoTip"><img id="info" src="img/info.png"></span>
+        <div class="tooltip"><span onclick="Expand()" id="infoTip"><img id="info" src="img/info.png"></span>
             <div class="tooltiptext" id="tooltiptext">
+                <h4>Notes</h4>
                 <ul>
                     <li>This website generates a paper wallet, ready for printing and storage.</li>
+                    <li>Use the option buttons on the top left to control the output of the paper wallet generator</li>
                     <li>All content on this site is locally hosted, and relies on only two dependencies</li>
                     <ul>
                         <li><a href="https://github.com/neocotic/qrious">Qrious</a> for QR code generation</li>
@@ -51,9 +53,17 @@
             </div>
         </div>
     </div>
+    <div id="versions">
+        <h4>Options</h4>
+        <input id="default" class="button sml button-active" type="button" onclick="SetMode('default')" value="Default"><br>
+        <input id="no-seed" class="button sml" type="button" onclick="SetMode('no-seed')" value="No Seed"><br>
+        <input id="no-qr" class="button sml" type="button" onclick="SetMode('no-qr')" value="No QR">
+
+    </div>
+
     <a id="download" href="out/offline-build.zip">Download an offline version of this site</a>
-    <a id="attr" href="https://github.com/arancauchi/IOTA-Paper-Wallet">This site was made by Aran Cauchi (/u/mothermole1) and is covered under an MIT license.</a>
-    <a id="ver" href="https://github.com/arancauchi/IOTA-Paper-Wallet">v1.2.1</a>
+    <a id="attr" href="https://github.com/arancauchi/IOTA-Paper-Wallet">This site is covered under an MIT license.</a>
+    <a id="ver" href="https://github.com/arancauchi/IOTA-Paper-Wallet">v1.3.1</a>
 
 </body>
 
