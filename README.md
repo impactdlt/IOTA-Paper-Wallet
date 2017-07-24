@@ -18,6 +18,7 @@ A ZIP file labled, "offline-build.zip" will be created in the **~/IOTA-Paper-Wal
 Unzip this file and run the resulting HTML file in your browser.
 <br>
 # Releases
+<a href="https://github.com/arancauchi/IOTA-Paper-Wallet/releases/tag/1.3.1">v1.3.1 Expanded wallet generation options</a><br>
 <a href="https://github.com/arancauchi/IOTA-Paper-Wallet/releases/tag/1.3.0">v1.3.0 Added wallet generation options</a><br>
 <a href="https://github.com/arancauchi/IOTA-Paper-Wallet/releases/tag/1.2.1">v1.2.1 Minor Graphical Fixes</a><br>
 v1.2 Added build support and a precompiled archive + graphics fixes<br>
