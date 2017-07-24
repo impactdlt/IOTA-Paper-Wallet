@@ -1,4 +1,6 @@
 var infoVisible = false;
+var optionsVisible = false;
+var advancedVisible = false;
 var mode = "default";
 var btnDefault = document.getElementById("default");
 var btnNoQR = document.getElementById("no-qr");
@@ -30,8 +32,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         addressCanvas = document.getElementById('addressCanvas');
 
         var options = {};
-        options.index = 0;
-        options.security = 2;
+
+        var sec = parseInt(document.getElementById('security-level').value);
+        if (sec < 1 || sec > 3)
+            sec = 2;
+
+        options.index = parseInt(document.getElementById('index-num').value);
+        options.security = sec;
         options.deterministic = "off";
         options.checksum = true;
         options.total = 1;
@@ -135,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
-function Expand() {
+function ExpandInfo() {
     var style = "hidden";
     if (!infoVisible) {
         style = "visible";
@@ -143,6 +150,29 @@ function Expand() {
     infoVisible = !infoVisible;
 
     document.getElementById("tooltiptext").style.visibility = style;
+}
+
+function ExpandOptions() {
+    var style = "hidden";
+    if (!optionsVisible) {
+        style = "visible";
+    } else {
+        document.getElementById("advanced").style.visibility = "hidden";
+        advancedVisible = false;
+    }
+    optionsVisible = !optionsVisible;
+
+    document.getElementById("options").style.visibility = style;
+}
+
+function ExpandAdvanced() {
+    var style = "hidden";
+    if (!advancedVisible && optionsVisible) {
+        style = "visible";
+    }
+    advancedVisible = !advancedVisible;
+
+    document.getElementById("advanced").style.visibility = style;
 }
 
 function SetMode(m) {

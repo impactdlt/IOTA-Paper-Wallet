@@ -27,7 +27,8 @@ p,
 li,
 span,
 input,
-h4 {
+h4,
+label {
     font-family: 'Roboto', sans-serif!important;
     letter-spacing: 0.05em;
 }
@@ -38,6 +39,7 @@ h4 {
     margin: 0px;
     margin-left: 10px;
     font-weight: normal;
+    text-decoration: underline;
 }
 
 canvas {
@@ -246,4 +248,27 @@ li {
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+#options,
+#advanced {
+    visibility: hidden;
+}
+
+#optionsBtn,
+#advancedBtn {
+    cursor: pointer;
+}
+
+#index-num,
+#security-level {
+    opacity: 1;
+    width: 78px;
+    margin-left: 10px;
+}
+
+label {
+    font-size: 12px;
+    color: #FFF;
+    margin-left: 10px;
 }

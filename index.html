@@ -34,7 +34,7 @@
 
     <div id="infoContainer">
         <br>
-        <div class="tooltip"><span onclick="Expand()" id="infoTip"><img id="info" src="img/info.png"></span>
+        <div class="tooltip"><span onclick="ExpandInfo()" id="infoTip"><img id="info" src="img/info.png"></span>
             <div class="tooltiptext" id="tooltiptext">
                 <h4>Notes</h4>
                 <ul>
@@ -54,10 +54,20 @@
         </div>
     </div>
     <div id="versions">
-        <h4>Options</h4>
-        <input id="default" class="button sml button-active" type="button" onclick="SetMode('default')" value="Default"><br>
-        <input id="no-seed" class="button sml" type="button" onclick="SetMode('no-seed')" value="No Seed"><br>
-        <input id="no-qr" class="button sml" type="button" onclick="SetMode('no-qr')" value="No QR">
+        <h4 id="optionsBtn" onclick="ExpandOptions()">Options</h4>
+        <div id="options">
+            <label>Styles</label><br>
+            <input id="default" class="button sml button-active" type="button" onclick="SetMode('default')" value="Default"><br>
+            <input id="no-seed" class="button sml" type="button" onclick="SetMode('no-seed')" value="No Seed"><br>
+            <input id="no-qr" class="button sml" type="button" onclick="SetMode('no-qr')" value="No QR"><br>
+            <h4 id="advancedBtn" onclick="ExpandAdvanced()">Advanced!</h4>
+            <div id="advanced">
+                <label>Enter Index</label><br>
+                <input id="index-num" type="text" value="0" onkeyup="this.value=this.value.replace(/[^\d]/,'')"><br>
+                <label>Enter Security</label><br>
+                <input id="security-level" type="text" value="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+            </div>
+        </div>
 
     </div>
 
