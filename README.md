@@ -40,5 +40,4 @@ With thanks to:
 - jflowers1974
 - /u/SoaringMoon
 <br>
-<br>
  <a href="https://github.com/arancauchi/IOTA-Paper-Wallet/blob/master/checksum.md">Current checksum for offline build</a>
