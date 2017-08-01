@@ -26,8 +26,6 @@ Unzip this file and run the resulting HTML file in your browser.
 v1.2 Added build support and a precompiled archive + graphics fixes<br>
 v1.1 Added landscape support and updated validation rules<br>
 <br>
-Current SHA256 checksum for offline build: 9e844e3c1620aea782bc943e7ab42b058bd31df54974f84ca23339287d7e0998
-<br>
 # Support
 Find me on IOTA slack @arancauchi or on reddit /u/mothermole1
 <br>
@@ -41,3 +39,6 @@ IOTA: `TGWKTZGRSWQYM9FMDNUPNVXYRXXEYUFNYKCQKPPTAAZDFYPN9YRTARYMCWZZGWSEARXSDIUWH
 With thanks to: 
 - jflowers1974
 - /u/SoaringMoon
+<br>
+<br>
+ <a href="https://github.com/arancauchi/IOTA-Paper-Wallet/blob/master/checksum.md">Current checksum for offline build</a>
