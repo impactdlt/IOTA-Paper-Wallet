@@ -5,6 +5,7 @@ var mode = "default";
 var btnDefault = document.getElementById("default");
 var btnNoQR = document.getElementById("no-qr");
 var btnNoSeed = document.getElementById("no-seed");
+var btnDiscrete = document.getElementById("discrete");
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var iota = new IOTA({
@@ -76,45 +77,67 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             ctx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
 
-            var bg = new Image;
-            bg.onload = function() {
-                ctx.save();
-                ctx.globalAlpha = 0.8;
-                ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
-                ctx.restore();
-                if (mode != "no-qr")
-                    ctx.drawImage(seedCanvas, 20, 60);
-                ctx.drawImage(addressCanvas, 1280, 180);
+            if (mode != "discrete") {
+                var bg = new Image;
+                bg.onload = function() {
+                    ctx.save();
+                    ctx.globalAlpha = 0.8;
+                    ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
+                    ctx.restore();
+                    if (mode == "default" || mode == "address") {
+                        ctx.drawImage(addressCanvas, 1280, 180);
+                        if (mode == "default") {
+                            ctx.drawImage(seedCanvas, 20, 60);
+                        }
+                    }
 
-                if (mode == "default") {
-                    ctx.font = "bold 28px Roboto";
-                    ctx.textAlign = "center";
-                    ctx.fillText("PRIVATE SEED", 170, 400);
+                    if (mode == "default" || mode == "no-qr") {
+                        ctx.font = "bold 28px Roboto";
+                        ctx.textAlign = "center";
+
+                        var xPos = 170;
+                        var yPos = 400;
+                        if (mode == "no-qr") {
+                            xPos = 110;
+                            yPos = 80;
+                        }
+                        ctx.fillText("PRIVATE SEED", xPos, yPos);
+
+                        ctx.font = "bold 24.6px Roboto";
+                        ctx.textAlign = "left";
+                        ctx.fillText(seed, 20, 40);
+
+                        ctx.textAlign = "center";
+                        ctx.font = "bold 28px Roboto";
+                        xPos = 1430;
+                        yPos = 160;
+                        if (mode == "no-qr") {
+                            xPos = 1445;
+                            yPos = 480;
+                        }
+                        ctx.fillText("RECEIVING ADDRESS", xPos, yPos);
+                    }
+
+                    ctx.textAlign = "right";
                     ctx.font = "bold 24.6px Roboto";
-                    ctx.textAlign = "left";
-                    ctx.fillText(seed, 20, 40);
-                }
+                    ctx.fillText(address, 1580, 520);
 
-                ctx.textAlign = "center";
-                ctx.font = "bold 28px Roboto";
-                ctx.fillText("RECEIVING ADDRESS", 1430, 160);
-
-                ctx.textAlign = "right";
-                ctx.font = "bold 24.6px Roboto";
-                ctx.fillText(address, 1580, 520);
-
-                var img = new Image;
-                img.onload = function() {
-                    ctx.drawImage(img, 400, 114, 800, 300);
+                    var img = new Image;
+                    img.onload = function() {
+                        ctx.drawImage(img, 400, 114, 800, 300);
+                    };
+                    img.src = "img/logo.png";
                 };
-                img.src = "img/logo.png";
-            };
-            bg.src = "img/bg.png";
+                bg.src = "img/bg.png";
+            } else {
+                ctx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
+                ctx.font = "bold 22px Roboto";
+                ctx.textAlign = "center";
+                ctx.fillText(seed, 800, 300);
+            }
         }
-
         document.getElementById("copy").style.visibility = "visible";
         document.getElementById("copy").innerHTML = "Generated Address: " + address;
-
     }
 
     function DisplayValid(seed) {
@@ -130,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             msg = "This seed is less than 81 characters. For maximum security, use 81 characters.";
             document.getElementById('validMessage').innerHTML = msg;
         }
-        if (seed.length > 81){
+        if (seed.length > 81) {
             msg = "THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS.";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
@@ -183,11 +206,15 @@ function SetMode(m) {
     mode = m;
     document.getElementById("default").classList.remove("button-active");
     document.getElementById("no-qr").classList.remove("button-active");
-    document.getElementById("no-seed").classList.remove("button-active");
+    document.getElementById("address").classList.remove("button-active");
+    document.getElementById("discrete").classList.remove("button-active");
+
     if (m == "default")
         document.getElementById("default").classList.add("button-active");
     else if (m == "no-qr")
         document.getElementById("no-qr").classList.add("button-active");
+    else if (m == "address")
+        document.getElementById("address").classList.add("button-active");
     else
-        document.getElementById("no-seed").classList.add("button-active");
+        document.getElementById("discrete").classList.add("button-active");
 }

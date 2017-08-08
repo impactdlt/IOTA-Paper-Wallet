@@ -90,7 +90,7 @@ input {
     padding: 8px 16px;
     margin-top: 4px;
     margin-bottom: 4px;
-    width: 80px;
+    width: 120px;
     opacity: 0.7;
 }
 
@@ -162,6 +162,9 @@ a {
         display: none!important;
     }
     a {
+        display: none!important;
+    }
+    h4 {
         display: none!important;
     }
     @page {
@@ -263,7 +266,7 @@ li {
 #index-num,
 #security-level {
     opacity: 1;
-    width: 78px;
+    width: 120px;
     margin-left: 10px;
 }
 
