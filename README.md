@@ -1,6 +1,6 @@
 # IOTA-Paper-Wallet
 This utility is for the use of generating paper wallets for IOTA.<br>
-All resources are local, and the only two dependencies for this utility are <a href="https://github.com/neocotic/qrious">qrious</a>, and <a href = "https://github.com/iotaledger/iota.lib.js">iota.utils</a>
+All resources are local, and the only two dependencies for this utility are <a href="https://github.com/neocotic/qrious">qrious</a>, and <a href = "https://github.com/iotaledger/iota.lib.js">iota js lib</a>
 <br>
 An online version of this site is hosted <a href="https://arancauchi.github.io/IOTA-Paper-Wallet/">here</a>
 <br>

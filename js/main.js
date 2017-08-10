@@ -7,7 +7,7 @@ var btnNoQR = document.getElementById("no-qr");
 var btnNoSeed = document.getElementById("no-seed");
 var btnDiscrete = document.getElementById("discrete");
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
     var iota = new IOTA({
         'host': 'http://localhost',
         'port': 14265
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         options.total = 1;
         validAdd = DisplayValid(seed);
         if (validAdd) {
-            iota.api.getNewAddress(seed, options, function(e, add) {
+            iota.api.getNewAddress(seed, options, function (e, add) {
                 address = add;
                 GeneratePaper();
             });
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             if (mode != "discrete") {
                 var bg = new Image;
-                bg.onload = function() {
+                bg.onload = function () {
                     ctx.save();
                     ctx.globalAlpha = 0.8;
                     ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
@@ -88,6 +88,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         ctx.drawImage(addressCanvas, 1280, 180);
                         if (mode == "default") {
                             ctx.drawImage(seedCanvas, 20, 60);
+                        }
+                        else {
+                            ctx.textAlign = "center";
+                            ctx.font = "bold 28px Roboto";
+                            ctx.fillText("RECEIVING ADDRESS", 1430, 160);
                         }
                     }
 
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     ctx.fillText(address, 1580, 520);
 
                     var img = new Image;
-                    img.onload = function() {
+                    img.onload = function () {
                         ctx.drawImage(img, 400, 114, 800, 300);
                     };
                     img.src = "img/logo.png";
@@ -162,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function PrintWallet() {
+        document.title = "_";
         window.print();
     }
 
