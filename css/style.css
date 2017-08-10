@@ -152,19 +152,7 @@ a {
 }
 
 @media print {
-    input {
-        display: none!important;
-    }
-    span {
-        display: none!important;
-    }
-    p {
-        display: none!important;
-    }
-    a {
-        display: none!important;
-    }
-    h4 {
+    input, span, p, a, h4, label {
         display: none!important;
     }
     @page {
