@@ -40,5 +40,6 @@ IOTA: `TGWKTZGRSWQYM9FMDNUPNVXYRXXEYUFNYKCQKPPTAAZDFYPN9YRTARYMCWZZGWSEARXSDIUWH
 With thanks to: 
 - jflowers1974
 - /u/SoaringMoon
+- sm1ddy
 <br>
  <a href="https://github.com/arancauchi/IOTA-Paper-Wallet/blob/master/checksum.md">Current checksum for offline build</a>
