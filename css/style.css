@@ -152,7 +152,12 @@ a {
 }
 
 @media print {
-    input, span, p, a, h4, label {
+    input,
+    span,
+    p,
+    a,
+    h4,
+    label {
         display: none!important;
     }
     @page {
@@ -216,9 +221,10 @@ li {
 }
 
 #download {
-    position: absolute;
-    margin: auto;
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
 }
 
 #attr,
@@ -226,13 +232,13 @@ li {
     position: absolute;
     text-align: right;
     right: 10px;
-    bottom: 10px;
+    bottom: 32px;
     color: #FFF;
     font-size: 12px;
 }
 
 #attr {
-    bottom: 32px;
+    bottom: 10px;
 }
 
 #versions {
