@@ -9,22 +9,22 @@ var archive = archiver('zip', {
 });
 
 output.on('close', function() {
-  hasha.fromFile('out/offline-build.zip', {algorithm: 'sha256'}).then(hash => {
-    writeFile('checksum.md', "Sha256: " + hash + "\n", function(err) {
-      if (err) console.log(err);
+    hasha.fromFile('out/offline-build.zip', { algorithm: 'sha256' }).then(hash => {
+        writeFile('checksum.md', "Sha256: " + hash + "\n", function(err) {
+            if (err) console.log(err);
+            console.log("Sha256 hash: " + hash);
+            console.log("Build complete.");
+        });
     });
-    console.log("Sha256 hash: " + hash);    
-    console.log("Build complete.");
-  });
 });
 
 archive.on('warning', function(err) {
-  if (err.code !== 'ENOENT') 
-    throw err;      
+    if (err.code !== 'ENOENT')
+        throw err;
 });
 
 archive.on('error', function(err) {
-  throw err;
+    throw err;
 });
 
 archive.directory('img/', 'img');
@@ -36,4 +36,3 @@ archive.file('index.html', { name: 'index.html' });
 archive.pipe(output);
 
 archive.finalize();
-
