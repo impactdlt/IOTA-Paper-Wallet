@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         validAdd = DisplayValid(seed);
         if (validAdd) {
             iota.api.getNewAddress(seed, options, function(e, add) {
-                address = add;
+                address = add[0];
                 GeneratePaper();
             });
         } else {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             aQR = new QRious({
                 element: addressCanvas,
-                value: address[0],
+                value: address,
                 size: 300,
                 backgroundAlpha: 0
             });
