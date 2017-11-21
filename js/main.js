@@ -149,16 +149,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById('validMessage').innerHTML = "";
         var val = true;
 
-        if (seed == "" || seed.length > 81 || !seed.match(/^[A-Z9]*$/)) {
+        if (seed == "") {
+            msg = "Specify seed below.";
+            document.getElementById('validMessage').innerHTML = msg;
+            val = false;
+        } else if (!seed.match(/^[A-Z9]*$/)) {
             msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9.";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
-        } else if (seed.length < 81 && seed != "") {
-            msg = "This seed is less than 81 characters. For maximum security, use 81 characters.";
+        } else if (seed.length < 81) {
+            msg = "This seed is less than 81 characters (" + seed.length + "). For maximum security, use 81 characters.";
             document.getElementById('validMessage').innerHTML = msg;
         }
-        if (seed.length > 81) {
-            msg = "THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS.";
+        else if (seed.length > 81) {
+            msg = "THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS (" + seed.length + ")";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         }
