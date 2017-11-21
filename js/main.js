@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
                     ctx.restore();
                     if (mode == "default" || mode == "address") {
-                        ctx.drawImage(addressCanvas, 1280, 180);
+                        ctx.drawImage(addressCanvas, 1280, 120);
                         if (mode == "default") {
-                            ctx.drawImage(seedCanvas, 20, 60);
+                            ctx.drawImage(seedCanvas, 20, 120);
                         } else {
                             ctx.textAlign = "center";
                             ctx.font = "bold 28px Roboto";
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         ctx.textAlign = "center";
 
                         var xPos = 170;
-                        var yPos = 400;
+                        var yPos = 460;
                         if (mode == "no-qr") {
                             xPos = 110;
                             yPos = 80;
@@ -109,12 +109,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                         ctx.font = "bold 24.6px Roboto";
                         ctx.textAlign = "left";
-                        ctx.fillText(seed, 20, 40);
+                        ctx.fillText(seed.substring(0,27), 20, 40);
+                        ctx.fillText(seed.substring(27,54), 20, 70);
+                        ctx.fillText(seed.substring(54), 20, 100);
 
                         ctx.textAlign = "center";
                         ctx.font = "bold 28px Roboto";
                         xPos = 1430;
-                        yPos = 160;
+                        yPos = 100;
                         if (mode == "no-qr") {
                             xPos = 1445;
                             yPos = 480;
@@ -124,7 +126,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                     ctx.textAlign = "right";
                     ctx.font = "bold 24.6px Roboto";
-                    ctx.fillText(address, 1580, 520);
+                    ctx.fillText(address.substring(0,30), 1580, 460);
+                    ctx.fillText(address.substring(30,60), 1580, 490);
+                    ctx.fillText(address.substring(60), 1580, 520);
 
                     var img = new Image;
                     img.onload = function() {
