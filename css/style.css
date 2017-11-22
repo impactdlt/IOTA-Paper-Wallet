@@ -220,11 +220,13 @@ li {
     color: white;
 }
 
-#download {
+#download, #seed-help {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #attr,

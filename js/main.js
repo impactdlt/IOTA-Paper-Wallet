@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     ctx.fillText("ENTER A SEED AND PRESS GENERATE:", 800, 250);
     ctx.fillText("81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9", 800, 350);
 
-    function GenerateQR() {
+    function Generate() {
         seed = document.getElementById('seed').value;
 
         seedCanvas = document.getElementById('seedCanvas');
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         validAdd = DisplayValid(seed);
         if (validAdd) {
             iota.api.getNewAddress(seed, options, function(e, add) {
-                address = add;
+                address = add[0];
                 GeneratePaper();
             });
         } else {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             aQR = new QRious({
                 element: addressCanvas,
-                value: address[0],
+                value: address,
                 size: 300,
                 backgroundAlpha: 0
             });
@@ -85,13 +85,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
                     ctx.restore();
                     if (mode == "default" || mode == "address") {
-                        ctx.drawImage(addressCanvas, 1280, 180);
+                        ctx.drawImage(addressCanvas, 1280, 120);
                         if (mode == "default") {
-                            ctx.drawImage(seedCanvas, 20, 60);
+                            ctx.drawImage(seedCanvas, 20, 120);
                         } else {
                             ctx.textAlign = "center";
                             ctx.font = "bold 28px Roboto";
-                            ctx.fillText("RECEIVING ADDRESS", 1430, 160);
+                            ctx.fillText("RECEIVING ADDRESS", 1430, 100);
                         }
                     }
 
@@ -100,31 +100,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         ctx.textAlign = "center";
 
                         var xPos = 170;
-                        var yPos = 400;
+                        var yPos = 460;
                         if (mode == "no-qr") {
                             xPos = 110;
-                            yPos = 80;
+                            yPos = 140;
                         }
                         ctx.fillText("PRIVATE SEED", xPos, yPos);
 
                         ctx.font = "bold 24.6px Roboto";
                         ctx.textAlign = "left";
-                        ctx.fillText(seed, 20, 40);
+                        ctx.fillText(seed.substring(0,27), 20, 40);
+                        ctx.fillText(seed.substring(27,54), 20, 70);
+                        ctx.fillText(seed.substring(54), 20, 100);
 
                         ctx.textAlign = "center";
                         ctx.font = "bold 28px Roboto";
                         xPos = 1430;
-                        yPos = 160;
+                        yPos = 100;
                         if (mode == "no-qr") {
                             xPos = 1445;
-                            yPos = 480;
+                            yPos = 420;
                         }
                         ctx.fillText("RECEIVING ADDRESS", xPos, yPos);
                     }
 
                     ctx.textAlign = "right";
                     ctx.font = "bold 24.6px Roboto";
-                    ctx.fillText(address, 1580, 520);
+                    ctx.fillText(address.substring(0,30), 1580, 460);
+                    ctx.fillText(address.substring(30,60), 1580, 490);
+                    ctx.fillText(address.substring(60), 1580, 520);
 
                     var img = new Image;
                     img.onload = function() {
@@ -149,16 +153,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById('validMessage').innerHTML = "";
         var val = true;
 
-        if (seed == "" || seed.length > 81 || !seed.match(/^[A-Z9]*$/)) {
-            msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9.";
+        if (seed == "") {
+            msg = "Specify seed.";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
-        } else if (seed.length < 81 && seed != "") {
-            msg = "This seed is less than 81 characters. For maximum security, use 81 characters.";
+        } else if (!seed.match(/^[A-Z9]*$/)) {
+            msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9.";
             document.getElementById('validMessage').innerHTML = msg;
+            val = false;RECEI
+        } else if (seed.length < 81) {
+            msg = "This seed is less than 81 characters (" + seed.length + "). For maximum security, use 81 characters.";
+            document.getElementById('validMessage').innerHTML = msg;
+            val = false;
         }
-        if (seed.length > 81) {
-            msg = "THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS.";
+        else if (seed.length > 81) {
+            msg = "THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS (" + seed.length + ")";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         }
@@ -170,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         window.print();
     }
 
-    document.getElementById("generate").addEventListener("click", GenerateQR);
+    document.getElementById("generate").addEventListener("click", Generate);
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
