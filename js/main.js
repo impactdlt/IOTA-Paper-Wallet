@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     ctx.fillText("ENTER A SEED AND PRESS GENERATE:", 800, 250);
     ctx.fillText("81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9", 800, 350);
 
-    function GenerateQR() {
+    function Generate() {
         seed = document.getElementById('seed').value;
 
         seedCanvas = document.getElementById('seedCanvas');
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         } else {
                             ctx.textAlign = "center";
                             ctx.font = "bold 28px Roboto";
-                            ctx.fillText("RECEIVING ADDRESS", 1430, 160);
+                            ctx.fillText("RECEIVING ADDRESS", 1430, 100);
                         }
                     }
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         var yPos = 460;
                         if (mode == "no-qr") {
                             xPos = 110;
-                            yPos = 80;
+                            yPos = 140;
                         }
                         ctx.fillText("PRIVATE SEED", xPos, yPos);
 
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         yPos = 100;
                         if (mode == "no-qr") {
                             xPos = 1445;
-                            yPos = 480;
+                            yPos = 420;
                         }
                         ctx.fillText("RECEIVING ADDRESS", xPos, yPos);
                     }
@@ -154,13 +154,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var val = true;
 
         if (seed == "") {
-            msg = "Specify seed below.";
+            msg = "Specify seed.";
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         } else if (!seed.match(/^[A-Z9]*$/)) {
             msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9.";
             document.getElementById('validMessage').innerHTML = msg;
-            val = false;
+            val = false;RECEI
         } else if (seed.length < 81) {
             msg = "This seed is less than 81 characters (" + seed.length + "). For maximum security, use 81 characters.";
             document.getElementById('validMessage').innerHTML = msg;
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         window.print();
     }
 
-    document.getElementById("generate").addEventListener("click", GenerateQR);
+    document.getElementById("generate").addEventListener("click", Generate);
     document.getElementById("print").addEventListener("click", PrintWallet);
 });
 
