@@ -181,6 +181,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     document.getElementById("generate").addEventListener("click", Generate);
     document.getElementById("print").addEventListener("click", PrintWallet);
+
+    document.getElementById("seed").addEventListener("keyup", function() {
+        DisplayValid(document.getElementById("seed").value);
+    });
 });
 
 function ExpandInfo() {
