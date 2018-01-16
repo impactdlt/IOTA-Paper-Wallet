@@ -11,7 +11,8 @@ var archive = archiver('zip', {
 output.on('close', function() {
     hasha.fromFile('out/offline-build.zip', { algorithm: 'sha256' }).then(hash => {
         writeFile('checksum.md', "Sha256: " + hash + "\n", function(err) {
-            if (err) console.log(err);
+            if (err) 
+                console.log(err);
             console.log("Sha256 hash: " + hash);
             console.log("Build complete.");
         });
