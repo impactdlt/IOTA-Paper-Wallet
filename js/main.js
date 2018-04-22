@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else if (!seed.match(/^[A-Z9]*$/)) {
             msg = "THIS IS NOT A VALID SEED! CHARACTERS USED MUST BE ONLY UPPERCASE [A-Z] AND 9.";
             document.getElementById('validMessage').innerHTML = msg;
-            val = false;RECEI
+            val = false;
         } else if (seed.length < 81) {
             msg = "This seed is less than 81 characters (" + seed.length + "). For maximum security, use 81 characters.";
             document.getElementById('validMessage').innerHTML = msg;
