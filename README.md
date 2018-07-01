@@ -1,4 +1,4 @@
-# IOTA-Paper-Wallet
+# [IOTA-Paper-Wallet](https://impactdlt.github.io/IOTA-Paper-Wallet/)
 This utility is for the use of generating paper wallets for IOTA.<br>
 All resources are local, and the only two dependencies for this utility are <a href="https://github.com/neocotic/qrious">qrious</a>, and <a href = "https://github.com/iotaledger/iota.lib.js">iota js lib</a>
 <br>
@@ -37,13 +37,13 @@ v1.1 Added landscape support and updated validation rules<br>
 Find me on IOTA slack @arancauchi or on reddit /u/mothermole1
 <br>
 <br>
-If you like this project please feel free to add issues to the issue tracker, or create pull requests for new features. 
+If you like this project please feel free to add issues to the issue tracker, or create pull requests for new features.
 <br>
 <br>
 Donations are more than welcome<br>
 IOTA: `OLADVFKDCTEEPBBXYBXYICNJEHWGOXDXXKINNUWPQUGNWZNXFACNRBSZRDDZWZPTANFAYITUJEAJFKS9WDCYCBI9VW`
 <br>
-With thanks to: 
+With thanks to:
 - jflowers1974
 - /u/SoaringMoon
 - sm1ddy
