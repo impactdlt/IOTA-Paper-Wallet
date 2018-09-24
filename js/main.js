@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         }
         document.getElementById("copy").style.visibility = "visible";
-        document.getElementById("copy").innerHTML = "Generated Address: " + address;
+        document.getElementById("copy").innerHTML = "Generated IOTA Deposit Address: " + address;
     }
 
     function DisplayValid(seed) {
