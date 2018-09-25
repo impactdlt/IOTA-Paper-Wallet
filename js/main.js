@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                             xPos = 110;
                             yPos = 140;
                         }
-                        ctx.fillText("PRIVATE SEED", xPos, yPos);
+                        ctx.fillText("SEED", xPos, yPos);
 
                         ctx.font = "bold 24.6px Roboto";
                         ctx.textAlign = "left";
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                             xPos = 1445;
                             yPos = 420;
                         }
-                        ctx.fillText("RECEIVING ADDRESS", xPos, yPos);
+                        ctx.fillText("IOTA Deposit Address", xPos, yPos);
                     }
 
                     ctx.textAlign = "right";
